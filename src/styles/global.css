@@ -1,0 +1,238 @@
+@import "/src/styles/query.css";
+@import "/src/styles/contacts.css";
+@import "/src/styles/no-records.css";
+@import "/src/styles/new-contact.css";
+@import "/src/styles/delete-contact.css";
+@import "/src/styles/loadingSpinner.css";
+
+/********************************************/
+/* VARIABLES DECLARATION */ /********************************************/
+:root {
+  /* COLORS */
+  /* --color-primary: #bc4646; */
+  /* --color-primary-light: #92d07e; */
+  /* --color-primary-dark: #458431; */
+  --color-secondary: #03cc00;
+  --color-secondary-light: #68e066;
+  --color-secondary-dark: #027a00;
+  --color-accent: #e71111;
+  --color-accent-light: #f17070;
+  --color-accent-dark: #8b0a0a;
+  --color-grey-0: #fefefe;
+  --color-grey-0-transparent: rgba(254, 254, 254, 0.9);
+  --color-second: rgb(0, 0, 0);
+  --color-secondary-transparent: rgb(3, 204, 0, 0.2);
+  --color-blue-menu: #e7f3fb;
+  --color-blue-menu-2: #cfe6f7;
+  --color-grey-100: #cccccc;
+  --color-grey-300: #999999;
+  --color-grey-600: #666666;
+  --color-grey-900: #333333;
+  --color-footer-area: #2d2d2d;
+  --color-table-row-even: #d6eeee;
+  --color-table-row-even-hover: #c1d6d6;
+  --color-table-row-odd-hover: #e5e5e5;
+  --gradient-primary: linear-gradient(to left top,
+    var(--color-secondary-light),
+    var(--color-secondary)
+  );
+  --gradient-secondary: linear-gradient(to top left, #ffb003, rgb(255, 205, 5))
+
+  /* FONT SIZE SYSTEM (REM)*/
+  /* 10px = 1rem */
+  --font-size-small: 1rem;
+  --font-size-default: 1.2rem;
+  --font-size-h1: 2rem;
+  --font-size-h2: 1.5rem;
+  --font-size-h3: 1.15rem;
+  --font-size-h4: 1rem;
+  --font-size-h5: 0.8rem;
+  --font-size-h6: 0.66rem;
+  --font-size-16: 1.6rem;
+  --font-size-18: 1.8rem;
+  --font-size-24: 2.4rem;
+  --font-size-36: 3.6rem;
+  --font-size-48: 4.8rem;
+  --font-size-52: 5.2rem;
+  --font-size-62: 6.2rem;
+
+  /* FONT WEIGHT (px)*/
+  --font-weight-default: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-strong: 900;
+
+  /* LETTER SPACING */
+  --letter-spacing-small: 0.5rem;
+  --letter-spacing-medium: 0.75rem;
+
+  /* LINE HEIGHTS */
+  --line-height-default: 1;
+  --line-height-small: 1.05;
+  --line-height-medium: 1.2;
+  --line-height-paragraph: 1.6;
+  --line-height-large: 1.8;
+
+  /* BOX SHADOWS */
+  --box-shadow-default: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+
+  /* BORDER-RADIUS */
+  --border-radius-default: 0.5rem;
+  --border-radius-medium: 0.9rem;
+  --border-radius-large: 1.1rem;
+
+  /* 04 WHITESPACE - SPACING SYSTEM (REM) */
+  --margin-all-default: 1.2rem;
+  --margin-all-small: 2.4rem;
+  --margin-all-medium: 3.6rem;
+  --margin-all-large: 4.8rem;
+  --margin-left-default: 1.2rem;
+  --margin-left-small: 2.4rem;
+  --margin-left-medium: 3.6rem;
+  --margin-left-large: 4.8rem;
+  --margin-right-default: 1.2rem;
+  --margin-right-small: 2.4rem;
+  --margin-right-medium: 3.6rem;
+  --margin-right-large: 4.8rem;
+  --margin-top-default: 1.2rem;
+  --margin-top-small: 2.4rem;
+  --margin-top-medium: 3.6rem;
+  --margin-top-large: 4.8rem;
+  --margin-bottom-default: 1.2rem;
+  --margin-bottom-small: 2.4rem;
+  --margin-bottom-medium: 3.6rem;
+  --margin-bottom-large: 4.8rem;
+  --padding-all-default: 1.2rem;
+  --padding-all-small: 2.4rem;
+  --padding-all-medium: 3.6rem;
+  --padding-all-large: 4.8rem;
+  --padding-all-xlarge: 7.2rem;
+  --padding-all-xxlarge: 9.6rem;
+  --padding-left-default: 1.2rem;
+  --padding-left-small: 2.4rem;
+  --padding-left-medium: 3.6rem;
+  --padding-left-large: 4.8rem;
+  --padding-right-default: 1.2rem;
+  --padding-right-small: 2.4rem;
+  --padding-right-medium: 3.6rem;
+  --padding-right-large: 4.8rem;
+  --padding-top-default: 1.2rem;
+  --padding-top-small: 2.4rem;
+  --padding-top-medium: 3.6rem;
+  --padding-top-large: 4.8rem;
+  --padding-bottom-default: 1.2rem;
+  --padding-bottom-small: 2.4rem;
+  --padding-bottom-medium: 3.6rem;
+  --padding-bottom-large: 4.8rem;
+
+  /* MARGIN/ PADDING: LEFT AND RIGHT ONLY */
+  --margin-center-align: 0 auto;
+  --margin-lr-default: 0 1.2rem;
+  --margin-lr-small: 0 2.4rem;
+  --margin-lr-medium: 0 3.6rem;
+  --margin-lr-large: 0 4.8rem;
+  --margin-lr-xlarge: 0 9.6rem;
+  --margin-tb-default: 1.2rem 0;
+  --margin-tb-small: 2.4rem 0;
+  --margin-tb-medium: 3.6rem 0;
+  --margin-tb-large: 4.8rem 0;
+  --padding-lr-default: 0 1.2rem;
+  --padding-lr-small: 0 2.4rem;
+  --padding-lr-medium: 0 3.6rem;
+  --padding-lr-large: 0 4.8rem;
+  --padding-tb-default: 1.2rem 0;
+  --padding-tb-small: 2.4rem 0;
+  --padding-tb-medium: 3.6rem 0;
+  --padding-tb-large: 4.8rem 0;
+  --padding-tblr-default: 1.2rem;
+  --padding-tblr-small: 1.2rem 2.4rem;
+  --padding-tblr-medium: 1.2rem 3.6rem;
+  --padding-tblr-large: 1.2rem 7.2rem;
+  /* 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128 */
+
+  /* FLEX GAP  */
+  --flex-gap-default: 1.2rem;
+  --flex-gap-small: 2.4rem;
+  --flex-gap-medium: 3.6rem;
+  --flex-gap-large: 4.8rem;
+}
+/* GLOBAL M/P/B RESET */
+/* Remove default margins */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Set core root default */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* GENERAL FONT SETTING */
+body {
+  min-height: 100%;
+  color: var(--color-grey-900);
+  text-rendering: optimizeSpeed;
+  font-size: var(--font-size-16);
+  font-family: "Montserrat", "Sans-Pro";
+  line-height: var(--line-height-small);
+  font-weight: var(--font-weight-default);
+
+
+  /* This only works if there is nothing absolutely positioned in relation to body */
+  /* overflow-x: hidden; */
+}
+
+/* DEFAULT FONT CONVERSION SIZE */
+html {
+  /*  Default font-size = 16px 
+      10px / 16px = 0.625 = 62.5% 
+      10px = 1rem
+      This is a percentage of users' browser
+      font-size setting */
+  font-size: 62.5%;
+  color: inherit;
+  /* overflow-x: hidden; */
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+/* Set height for parent container */
+/* .root-container {
+  min-height: 100vh;
+} */

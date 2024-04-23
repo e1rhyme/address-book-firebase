@@ -1,0 +1,49 @@
+.landing {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.landing-home {
+  display: flex;
+}
+.no-records {
+  text-align: center;
+  font-size: var(--font-size-52);
+}
+.landing-home .material-symbols-outlined {
+  font-size: var(--font-size-52);
+  font-variation-settings: "wght" 700;
+}
+.action-required {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--margin-top-small);
+}
+.add-record a {
+  color: inherit;
+  text-decoration: none;
+}
+.new-record {
+  font-size: var(--font-size-24);
+  font-weight: var(--font-weight-bold);
+}
+.add-record {
+  border-radius: 0.5rem;
+  font-size: var(--font-size-24);
+  padding: var(--padding-tblr-default);
+  margin-left: var(--margin-left-default);
+  border: solid 1px var(--color-grey-900);
+  margin-right: var(--margin-right-default);
+}
+.add-record:hover {
+  cursor: pointer;
+  box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.25);
+  transition: all 0.5s;
+}
+/* Used to control elements visibility state*/
+section.address-book.hidden {
+  display: none;
+}

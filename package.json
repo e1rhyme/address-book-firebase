@@ -1,0 +1,22 @@
+{
+  "name": "address-book",
+  "version": "1.0.0",
+  "description": "Online address book web app",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e1rhyme/address-book.git"
+  },
+  "author": "Emo Onerhime",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/e1rhyme/address-book/issues"
+  },
+  "homepage": "https://github.com/e1rhyme/address-book#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0"
+  }
+}

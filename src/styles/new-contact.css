@@ -1,0 +1,154 @@
+/* Preview New Contact */
+.new--contact-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+/* .hidden {
+  display: none;
+} */
+.new--btn--close-modal {
+  top: 0.5rem;
+  border: none;
+  right: 1.6rem;
+  color: inherit;
+  cursor: pointer;
+  background: none;
+  font-size: 3.5rem;
+  position: absolute;
+  font-family: inherit;
+}
+.new--overlay,
+.delete--overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(190, 190, 190, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 99;
+  transition: all 0.5s;
+}
+input[id="new--dialog"] {
+  display: none;
+}
+.new--profile-container {
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rem;
+  flex-direction: column;
+}
+.new--img__container {
+  width: 12rem;
+  height: 12rem;
+  cursor: pointer;
+  grid-column: 1/-1;
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.4s ease-in-out;
+  border: solid 1px var(--color-grey-100);
+}
+.new--img__container:hover {
+  background-color: var(--color-grey-100);
+}
+.new--img__container .new--profile-img,
+.new--img__container img {
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(0%, -50%);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+.new--add-contact-icon {
+  top: 70%;
+  left: 70%;
+  z-index: 110;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  position: relative;
+  background-color: var(--color-grey-0);
+  border: solid 4px var(--color-grey-0);
+}
+.new--circle-plus {
+  width: 3.5rem;
+  height: 3.5rem;
+  cursor: pointer;
+  font-size: 3.5rem;
+  position: absolute;
+  transition: all 0.2s;
+  transform: translate(-10%, -10%);
+  fill: var(--color-secondary-light);
+}
+.new--circle-plus:hover {
+  color: var(--color-secondary);
+}
+#new--contact-name {
+  font-weight: 600;
+  text-align: center;
+  font-family: inherit;
+  font-size: var(--font-size-24);
+}
+.personal-info-block {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#preview-dob,
+#preview-website,
+#preview-email-address,
+#preview-mobile-number {
+  font-weight: 600;
+  padding-right: 1rem;
+  text-transform: lowercase;
+  font-size: 1.2rem !important;
+}
+.personal-info-block label:not(:first-child) {
+  color: var(--color-grey-600);
+  font-size: var(--font-size-default) !important;
+}
+.new--personal-info-container {
+  gap: 2.5rem;
+  display: grid;
+  margin-bottom: 2rem;
+  align-content: space-between;
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.pib-website {
+  grid-column: span 2;
+}
+.new--contact-window .social-handles img {
+  margin: 0;
+}
+.new--social-handles {
+  gap: 1rem;
+  display: grid;
+  grid-auto-rows: max-content;
+  grid-template-columns: repeat(4, 1fr);
+}
+.new--social-handles-header {
+  text-align: center;
+  margin: 3.6rem 0 2.4rem 0;
+  font-size: var(--font-size-h3);
+}
+.fade {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.hover-text {
+  position: relative;
+  display: inline-block;
+  /* margin: 40px; */
+  font-family: Arial;
+  text-align: center;
+}
+#bottom {
+  top: 25px;
+  left: -50%;
+}

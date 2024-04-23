@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="shortcut icon"
+      href="/src/icons/menu_book_FILL0_wght400_GRAD0_opsz24.svg"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <link rel="stylesheet" href="/src/styles/global.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.15/build/css/intlTelInput.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.15/build/js/intlTelInput.min.js"></script>
+
+    <script defer type="module" src="src/js/controller.js"></script>
+
+    <title>Address Book</title>
+  </head>
+  <body>
+    <div class="root-container">
+      <!-- <div class="spinner">
+          <svg class="feather feather-loader" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><line x1="12" x2="12" y1="2" y2="6"/><line x1="12" x2="12" y1="18" y2="22"/><line x1="4.93" x2="7.76" y1="4.93" y2="7.76"/><line x1="16.24" x2="19.07" y1="16.24" y2="19.07"/><line x1="2" x2="6" y1="12" y2="12"/><line x1="18" x2="22" y1="12" y2="12"/><line x1="4.93" x2="7.76" y1="19.07" y2="16.24"/><line x1="16.24" x2="19.07" y1="7.76" y2="4.93"/></svg>
+        </div> -->
+      <!-- No contact interface -->
+      <section class="landing">
+        <div class="landing-home">
+          <h2 class="no-records">No records found!</h2>
+        </div>
+        <div class="action-required">
+          <p class="new-record">Click to</p>
+          <div class="add-record">
+            <a href="#">Add</a>
+          </div>
+          <p class="new-record">a new record</p>
+        </div>
+      </section>
+      <!-- Exiting contacts interface -->
+      <section class="address-book hidden">
+        <div class="contacts-display-container">
+          <div class="header-container">
+            <div class="header__left">
+              <span class="material-symbols-outlined menu"> menu </span>
+              <span class="material-symbols-outlined person"> person </span>
+              <a href="#" class="header-contact-link"> Contacts </a>
+              <div class="search-box">
+                <input
+                  class="search-txt"
+                  type="text"
+                  name=""
+                  placeholder="Type to search"
+                />
+                <a class="search-btn" href="#">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+              </div>
+            </div>
+            <div class="header__right">
+              <span class="material-symbols-outlined"> help </span>
+              <span class="material-symbols-outlined"> settings </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="side-bar-container">
+          <aside>
+            <menu>
+              <a href="#" class="add-contact-link menu-item"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path
+                    d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
+                  />
+                </svg>
+                <p>Create Contact</p></a
+              >
+              <a href="#" class="menu-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path
+                    d="M0-240v-63q0-43 44-70t116-27q13 0 25 .5t23 2.5q-14 21-21 44t-7 48v65H0Zm240 0v-65q0-32 17.5-58.5T307-410q32-20 76.5-30t96.5-10q53 0 97.5 10t76.5 30q32 20 49 46.5t17 58.5v65H240Zm540 0v-65q0-26-6.5-49T754-397q11-2 22.5-2.5t23.5-.5q72 0 116 26.5t44 70.5v63H780Zm-455-80h311q-10-20-55.5-35T480-370q-55 0-100.5 15T325-320ZM160-440q-33 0-56.5-23.5T80-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T160-440Zm640 0q-33 0-56.5-23.5T720-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T800-440Zm-320-40q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm0-80q17 0 28.5-11.5T520-600q0-17-11.5-28.5T480-640q-17 0-28.5 11.5T440-600q0 17 11.5 28.5T480-560Zm1 240Zm-1-280Z"
+                  />
+                </svg>
+                <p>Contacts</p></a
+              >
+              <a href="#" class="menu-item"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path
+                    d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
+                  />
+                </svg>
+                <p>Trash</p></a
+              >
+              <a href="#" class="menu-item"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path
+                    d="M840-480 666-234q-11 16-28.5 25t-37.5 9H200q-33 0-56.5-23.5T120-280v-400q0-33 23.5-56.5T200-760h400q20 0 37.5 9t28.5 25l174 246Zm-98 0L600-680H200v400h400l142-200Zm-542 0v200-400 200Z"
+                  />
+                </svg>
+                <p>Labels</p></a
+              >
+            </menu>
+          </aside>
+        </div>
+        <div class="mobile-side-bar-container hidden">
+          <menu>
+            <div class="side-bar-top menu-item">
+              <span class="material-symbols-outlined person"> person </span>
+              <a href="#" class="header-contact-link"> Contacts </a>
+            </div>
+            <a href="#" class="mobile-add-contact-link menu-item"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                viewBox="0 -960 960 960"
+                width="24"
+              >
+                <path
+                  d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
+                />
+              </svg>
+              <p>Create Contact</p></a
+            >
+            <a href="#" class="menu-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                viewBox="0 -960 960 960"
+                width="24"
+              >
+                <path
+                  d="M0-240v-63q0-43 44-70t116-27q13 0 25 .5t23 2.5q-14 21-21 44t-7 48v65H0Zm240 0v-65q0-32 17.5-58.5T307-410q32-20 76.5-30t96.5-10q53 0 97.5 10t76.5 30q32 20 49 46.5t17 58.5v65H240Zm540 0v-65q0-26-6.5-49T754-397q11-2 22.5-2.5t23.5-.5q72 0 116 26.5t44 70.5v63H780Zm-455-80h311q-10-20-55.5-35T480-370q-55 0-100.5 15T325-320ZM160-440q-33 0-56.5-23.5T80-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T160-440Zm640 0q-33 0-56.5-23.5T720-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T800-440Zm-320-40q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm0-80q17 0 28.5-11.5T520-600q0-17-11.5-28.5T480-640q-17 0-28.5 11.5T440-600q0 17 11.5 28.5T480-560Zm1 240Zm-1-280Z"
+                />
+              </svg>
+              <p>Contacts</p></a
+            >
+            <a href="#" class="menu-item"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                viewBox="0 -960 960 960"
+                width="24"
+              >
+                <path
+                  d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
+                />
+              </svg>
+              <p>Trash</p></a
+            >
+            <a href="#" class="menu-item"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                viewBox="0 -960 960 960"
+                width="24"
+              >
+                <path
+                  d="M840-480 666-234q-11 16-28.5 25t-37.5 9H200q-33 0-56.5-23.5T120-280v-400q0-33 23.5-56.5T200-760h400q20 0 37.5 9t28.5 25l174 246Zm-98 0L600-680H200v400h400l142-200Zm-542 0v200-400 200Z"
+                />
+              </svg>
+              <p>Labels</p></a
+            >
+          </menu>
+        </div>
+
+        <div class="contacts-container">
+          <div class="contacts-list-container">
+            <table class="tbl">
+              <thead>
+                <tr>
+                  <th>SN</th>
+                  <th>
+                    <input type="checkbox" name="checkbox" />
+                  </th>
+                  <th>Name</th>
+                  <th>Phone Number</th>
+                  <th data-title="Email Header">Email Address</th>
+                  <th class="hidden">Action</th>
+                </tr>
+              </thead>
+              <tbody class="contacts"></tbody>
+            </table>
+          </div>
+
+          <div class="delete-contact-container">
+            <div class="delete--overlay hidden"></div>
+            <button class="confirm-btn" data-status="delete">
+              Confrim delete
+            </button>
+            <button class="cancel-btn">Cancel</button>
+          </div>
+
+          <!-- 16 jan 2024 -->
+          <div class="profile-container">
+            <div class="new--overlay hidden"></div>
+            <!-- PREVIEW NEW CONTACT -->
+            <div class="new--contact-window hidden">
+              <!-- EDIT BUTTON -->
+
+              <!-- INJECT NEW CONTACT PROFILE HERE -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Create new contact interface -->
+      <section class="new-contact-container hidden">
+        <div class="overlay"></div>
+
+        <!-- ADD NEW CONTACT FORM -->
+        <div class="add-contact-window">
+          <div class="form-header">
+            <!-- NEW CONTACT PROFILE IMAGE -->
+            <div class="img__container">
+              <img
+                src="/src/img/profile.png"
+                alt="Profile Image"
+                class="profile-img"
+              />
+              <input
+                type="file"
+                accept="image/jpeg, image/png, image/jpg"
+                name="dialog"
+                id="dialog"
+              />
+              <div class="add-contact--icon">
+                <svg
+                  viewBox="0 0 1024 1024"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="circle-plus"
+                >
+                  <path
+                    d="M512 64a448 448 0 1 1 0 896 448 448 0 0 1 0-896zm-38.4 409.6H326.4a38.4 38.4 0 1 0 0 76.8h147.2v147.2a38.4 38.4 0 0 0 76.8 0V550.4h147.2a38.4 38.4 0 0 0 0-76.8H550.4V326.4a38.4 38.4 0 1 0-76.8 0v147.2z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <!-- MODAL BUTTON -->
+            <button class="btn--close-modal">&times;</button>
+          </div>
+
+          <!-- PERSONAL INFORMATION -->
+          <form id="contact-form">
+            <div class="personal-info">
+              <!-- KEY PERSONAL INFORMATION -->
+              <div class="personal-info__main">
+                <div class="prefix extra">
+                  <span class="align-input"></span>
+                  <input
+                    type="text"
+                    id="prefix"
+                    placeholder="Prefix"
+                    value=""
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="16"
+                    width="10"
+                    viewBox="0 0 320 512"
+                    class="expand_less hidden"
+                  >
+                    <path
+                      d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8H288c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"
+                    />
+                  </svg>
+                </div>
+                <div class="name">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="16"
+                    width="14"
+                    viewBox="0 0 448 512"
+                    class="person-icon"
+                  >
+                    <path
+                      d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"
+                    />
+                  </svg>
+                  <input
+                    type="text"
+                    id="fName"
+                    placeholder="First Name"
+                    value=""
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="16"
+                    width="10"
+                    viewBox="0 0 320 512"
+                    class="expand_more"
+                  >
+                    <path
+                      d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <!-- EXTRA PERSONAL INFORMATION -->
+              <div class="personal-info__extra">
+                <div class="mName extra">
+                  <span class="align-input"></span>
+                  <input
+                    type="text"
+                    id="mName"
+                    placeholder="Middle Name"
+                    value=""
+                  />
+                </div>
+                <div class="lName">
+                  <span class="align-input"></span>
+                  <input
+                    type="text"
+                    id="lName"
+                    placeholder="Last Name"
+                    value=""
+                  />
+                </div>
+                <div class="suffix extra">
+                  <span class="align-input"></span>
+                  <input
+                    type="text"
+                    id="suffix"
+                    placeholder="Suffix"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div class="email-container">
+                <div class="email">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="16"
+                    width="16"
+                    viewBox="0 0 512 512"
+                    class="mail"
+                  >
+                    <path
+                      d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"
+                    />
+                  </svg>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email Address"
+                    value=""
+                  />
+                  <!-- <span class="material-symbols-outlined add-email"> add </span> -->
+                </div>
+              </div>
+              <div class="mobile">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="16"
+                  width="16"
+                  viewBox="0 0 512 512"
+                  class="mobile-icon"
+                >
+                  <path
+                    d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"
+                  />
+                </svg>
+                <input
+                  id="phone"
+                  type="tel"
+                  name="phone"
+                  value=""
+                  placeholder=""
+                />
+              </div>
+              <div class="dob">
+                <!-- <span class="align-input"></span> -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path
+                    d="M160-80q-17 0-28.5-11.5T120-120v-200q0-33 23.5-56.5T200-400v-160q0-33 23.5-56.5T280-640h160v-58q-18-12-29-29t-11-41q0-15 6-29.5t18-26.5l56-56 56 56q12 12 18 26.5t6 29.5q0 24-11 41t-29 29v58h160q33 0 56.5 23.5T760-560v160q33 0 56.5 23.5T840-320v200q0 17-11.5 28.5T800-80H160Zm120-320h400v-160H280v160Zm-80 240h560v-160H200v160Zm80-240h400-400Zm-80 240h560-560Zm560-240H200h560Z"
+                  />
+                </svg>
+                <input
+                  type="date"
+                  id="birthday"
+                  placeholder="YYYY-MM-DD"
+                  value=""
+                />
+              </div>
+            </div>
+
+            <!-- SHOW MORE INFORMATION -->
+            <div class="social-info extra">
+              <h4>Social Media Details</h4>
+              <div class="website">
+                <span class="material-symbols-outlined"> globe </span>
+                <input
+                  type="url"
+                  name="websiteURL"
+                  id="websiteURL"
+                  placeholder="www.abc.com"
+                  value=""
+                />
+              </div>
+              <div class="website social">
+                <div class="social-handles">
+                  <img
+                    width="24"
+                    height="24"
+                    src="https://img.icons8.com/color/48/facebook-new.png"
+                    alt="facebook-new"
+                  />
+                  <input
+                    type="text"
+                    id="facebook"
+                    placeholder="Facebook username"
+                    value=""
+                  />
+                </div>
+                <div class="social-handles">
+                  <img
+                    width="24"
+                    height="24"
+                    src="https://img.icons8.com/fluency/48/instagram-new.png"
+                    alt="instagram-new"
+                  />
+                  <input
+                    type="text"
+                    id="instagram"
+                    placeholder="Instagram handle"
+                    value=""
+                  />
+                </div>
+                <div class="social-handles">
+                  <img
+                    width="25"
+                    height="25"
+                    src="https://img.icons8.com/ios-filled/50/twitterx--v1.png"
+                    alt="twitterx--v1"
+                  />
+                  <input type="text" id="x" placeholder="X handle" value="" />
+                </div>
+                <div class="social-handles">
+                  <img
+                    width="25"
+                    height="25"
+                    src="https://img.icons8.com/ios-filled/50/tiktok--v1.png"
+                    alt="tiktok--v1"
+                  />
+
+                  <input
+                    type="text"
+                    id="tiktok"
+                    placeholder="Tiktok handle"
+                    value=""
+                  />
+                </div>
+                <div class="social-handles">
+                  <img
+                    width="24"
+                    height="24"
+                    src="https://img.icons8.com/fluency/48/linkedin.png"
+                    alt="linkedin"
+                  />
+                  <input
+                    type="text"
+                    id="linkedin"
+                    placeholder="LinkedIn profile"
+                    value=""
+                  />
+                </div>
+                <div class="social-handles">
+                  <img
+                    width="24"
+                    height="24"
+                    src="https://img.icons8.com/color/48/pinterest--v1.png"
+                    alt="pinterest--v1"
+                  />
+                  <input
+                    type="text"
+                    id="pinterest"
+                    placeholder="Pinterest handle"
+                    value=""
+                  />
+                </div>
+                <div class="social-handles last">
+                  <img
+                    width="24"
+                    height="24"
+                    src="https://img.icons8.com/color/48/youtube-play.png"
+                    alt="youtube-play"
+                  />
+                  <input
+                    type="text"
+                    id="youtube"
+                    placeholder="YouTube handle"
+                    value=""
+                  />
+                </div>
+                <div class="social-handles last">
+                  <img
+                    width="24"
+                    height="24"
+                    src="https://img.icons8.com/fluency/48/snapchat.png"
+                    alt="snapchat"
+                  />
+                  <input
+                    type="text"
+                    id="snapchat"
+                    placeholder="Snapchat handle"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- SHOW MORE AND UPLOAD BUTTON -->
+            <div class="form-footer">
+              <div class="show-more-details">
+                <div class="show-more-title">
+                  <span>More</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="16"
+                    width="10"
+                    viewBox="0 0 320 512"
+                    class="show-more"
+                  >
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                    <path
+                      d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
+                    />
+                  </svg>
+                </div>
+                <div class="show-less-title hidden">
+                  <span>Less</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="16"
+                    width="10"
+                    viewBox="0 0 320 512"
+                    class="show-less"
+                  >
+                    <path
+                      d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8H288c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <input type="submit" class="btn upload__btn" value="Upload" />
+              <input
+                type="submit"
+                class="btn update__btn hidden"
+                value="Update"
+              />
+            </div>
+          </form>
+        </div>
+      </section>
+      <footer></footer>
+    </div>
+  </body>
+</html>

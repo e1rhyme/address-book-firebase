@@ -1,0 +1,135 @@
+/* @media screen and (min-width: 1200px) and (orientation: landscape) {
+  .add-contact-window,
+  .new--contact-window {
+    width: 75%;
+    height: 90%;
+    max-width: 100%;
+  }
+} */
+/* Hide email address column*/
+@media screen and (max-width: 1100px) {
+  thead tr th:nth-child(5) {
+    display: none;
+  }
+  tbody tr td:nth-child(5) {
+    display: none;
+  }
+}
+@media screen and (max-width: 1021px) {
+  /* Hide sidebar*/
+  .side-bar-container {
+    display: none;
+  }
+  /* Reset contact info display column span*/
+  .contacts-container {
+    grid-column: span 2 !important;
+  }
+}
+@media screen and (max-width: 700px) {
+  /* Hide phone number column*/
+  thead tr th:nth-child(4) {
+    display: none;
+  }
+  tbody tr td:nth-child(4) {
+    display: none;
+  }
+  .new--contact-window {
+    justify-content: space-evenly;
+  }
+}
+@media screen and (max-width: 700px) and (orientation: landscape) {
+  .new--contact-window {
+    justify-content: start;
+  }
+}
+@media only screen and (min-width: 260px) and (max-width: 600px) {
+  .add-contact-window,
+  .new--contact-window {
+    width: 95%;
+    height: 85%;
+    max-width: 100%;
+  }
+  .new-record,
+  .add-record {
+    font-size: 2rem;
+  }
+  .action-required {
+    gap: 1rem;
+    flex-direction: column;
+  }
+  .form-footer {
+    margin: 2rem 0;
+  }
+  .search-box:hover > .search-txt {
+    width: 12.5rem;
+  }
+  thead tr th:nth-child(1),
+  thead tr th:nth-child(2) {
+    width: 10%;
+  }
+  button#btn--edit {
+    margin-top: 7.5rem;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .add-contact-window,
+  .new--contact-window {
+    width: 95%;
+    height: 70%;
+    max-width: 100%;
+  }
+  .new-record,
+  .add-record {
+    font-size: 2rem;
+  }
+  .form-footer {
+    margin: 2rem 0;
+  }
+  button#btn--edit {
+    margin-top: 7.5rem;
+  }
+}
+
+@media only screen and (min-width: 722px) and (max-height: 350px) and (orientation: landscape) {
+  .new--contact-window {
+    justify-content: start;
+  }
+}
+
+@media only screen and (min-width: 260px) and (max-width: 500px) {
+  .website.social {
+    grid-template-columns: 1fr;
+  }
+  input[id="x"],
+  input[id="tiktok"],
+  input[id="youtube"],
+  input[id="linkedin"],
+  input[id="facebook"],
+  input[id="snapchat"],
+  input[id="instagram"],
+  input[id="pinterest"] {
+    width: 90%;
+  }
+  .social-handles:last-child:not(.social-handles.personal-info-block) {
+    margin-top: var(--margin-bottom-small);
+  }
+  .new--social-handles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .header-contact-link {
+    display: none;
+  }
+}
+@media only screen and (min-width: 260px) and (max-width: 400px) {
+  .new--personal-info-container {
+    line-height: 2rem;
+    text-align: center;
+    display: inline-block;
+  }
+  .new--social-handles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  button#btn--edit {
+    margin-top: 20rem;
+  }
+}
